@@ -972,9 +972,7 @@ utils.retry_delay = 200;
 utils.timeout = 5000;
 utils.nonce = "";
 utils.instrumentation = {};
-utils.navigationTimingAPIEnabled = function() {
-  return !!(window.performance && window.performance.timing && window.performance.timing.navigationStart);
-};
+utils.navigationTimingAPIEnabled = typeof window !== 'undefined' && !!(window.performance && window.performance.timing && window.performance.timing.navigationStart);
 utils.timeSinceNavigationStart = function() {
   return (Date.now() - window.performance.timing.navigationStart).toString();
 };
